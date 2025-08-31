@@ -552,3 +552,24 @@ ul li a
   height:75px;
   border-radius: 50%;
 }
+.remove-button {
+    background-color: #dc3545; /* Bootstrap's btn-danger color for consistency */
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.remove-button:hover {
+    background-color: #c82333; /* Darker shade for hover effect */
+    text-decoration: none;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    flex-wrap: wrap; /* Ensure buttons wrap on smaller screens */
+}

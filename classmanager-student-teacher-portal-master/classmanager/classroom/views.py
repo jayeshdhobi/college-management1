@@ -219,6 +219,15 @@ def update_marks(request,pk):
     else:
         form = MarksForm(request.POST or None,instance=obj)
     return render(request,'classroom/update_marks.html',{'form':form,'marks_updated':marks_updated})
+@login_required
+def remove_student(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    if request.method == 'POST':
+        student_name = student.name  # Store name for the success message
+        student.delete()
+        messages.success(request, f'Student {student_name} removed successfully.')
+        return redirect('classroom:class_student_list')
+    return render(request, 'classroom/confirm_remove_student.html', {'student': student})
 
 ## For writing notice which will be sent to all class students.
 @login_required

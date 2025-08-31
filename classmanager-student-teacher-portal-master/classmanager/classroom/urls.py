@@ -21,6 +21,7 @@ urlpatterns =[
     path('students_list/',views.students_list,name="students_list"),
     path('teachers_list/',views.teachers_list,name="teachers_list"),
     path('teacher/class_students_list',views.class_students_list,name="class_student_list"),
+    path('student/<int:pk>/remove/', views.remove_student, name='remove_student'),  # New URL for removing a student
     path('student/<int:pk>/all_marks',views.StudentAllMarksList.as_view(),name="all_marks_list"),
     path('student/<int:pk>/message',views.write_message,name="write_message"),
     path('teacher/<int:pk>/messages_list',views.messages_list,name="messages_list"),

@@ -123,14 +123,3 @@ class SubmitAssignment(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Student
-from django.contrib import messages  # ✅ Import added
-
-def remove_student(request, pk):
-    student = get_object_or_404(Student, pk=pk)
-    if request.method == 'POST':
-        student.delete()
-        messages.success(request, 'Student removed successfully.')  # ✅ Fixed line
-        return redirect('classroom:class_student_list')
-    return render(request, 'classroom/confirm_remove_student.html', {'student': student})

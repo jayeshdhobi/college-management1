@@ -15,7 +15,6 @@ urlpatterns =[
     path('update/teacher/<int:pk>/',views.TeacherUpdateView,name="teacher_update"),
     path('student/<int:pk>/enter_marks',views.add_marks,name="enter_marks"),
     path('student/<int:pk>/marks_list',views.student_marks_list,name="student_marks_list"),
-    path('student/<int:pk>/remove/', views.remove_student, name='remove_student'),
     path('marks/<int:pk>/update',views.update_marks,name="update_marks"),
     path('student/<int:pk>/add',views.add_student.as_view(),name="add_student"),
     path('student_added/',views.student_added,name="student_added"),

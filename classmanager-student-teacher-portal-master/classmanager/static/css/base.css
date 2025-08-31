@@ -61,9 +61,6 @@ ul li a
   display: block;
 }
 
-/* INDEX HOME PAGE ############################################# */
-
-/* Animated Background for Banner */
 .banner {
   margin: 0;
   position: relative;
@@ -85,30 +82,19 @@ ul li a
   100% { background-position: 0% 50%; }
 }
 
-/* Particle effect using pseudo-elements */
-.banner::before,
-.banner::after {
+/* Particle effect using pseudo-element */
+.banner::before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  pointer-events: none;
-}
-
-.banner::before {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-size: 25px 25px;
   animation: particleFloat 20s linear infinite;
   opacity: 0.3;
-}
-
-.banner::after {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-  background-size: 30px 30px;
-  animation: particleFloat 30s linear infinite reverse;
-  opacity: 0.2;
+  pointer-events: none;
 }
 
 @keyframes particleFloat {
@@ -124,7 +110,7 @@ ul li a
   height: 100%;
   object-fit: cover;
   opacity: 0.25;
-  background-attachment: fixed;
+  /* Removed background-attachment: fixed for mobile compatibility */
 }
 
 .banner .content {
@@ -132,202 +118,8 @@ ul li a
   max-width: 750px;
   text-align: center;
   color: white;
-  font-weight: 900;
+  font-weight: 900; /* Adjusted from 1000 to a standard value */
   font-size: 40px;
-  animation: fadeIn 2s ease-in-out;
-}
-
-/* Fade-in animation for content */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.about {
-  position: relative;
-  background: #00316b;
-  color: white;
-  text-align: center;
-  padding: 100px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  font-size: 25px;
-  animation: slideIn 1.5s ease-out;
-}
-
-/* Slide-in animation for sections */
-@keyframes slideIn {
-  0% { opacity: 0; transform: translateX(-50px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-.use-content {
-  background: #e91e63;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  font-weight: 600;
-  animation: slideIn 1.5s ease-out 0.2s;
-}
-
-.use-content h1 {
-  font-weight: 700;
-  font-size: 50px;
-}
-
-.research {
-  background: #00316b;
-  padding: 5%;
-  text-align: center;
-  color: white;
-  font-weight: 600;
-  animation: slideIn 1.5s ease-out 0.4s;
-}
-
-.research img {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.research img:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-.research .digital-content {
-  padding: 30px;
-  padding-top: 80px;
-  text-align: center;
-  font-weight: 700;
-  font-size: 30px;
-}
-
-.box {
-  margin: 10%;
-  margin-left: 15%;
-  position: relative;
-  width: 400px;
-  height: 500px;
-  background: #000;
-  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-@media only screen and (max-width: 600px) {
-  .box {
-    margin: 5%;
-    width: 100%;
-    max-width: 300px;
-    height: 400px;
-  }
-}
-
-.box:hover {
-  transform: scale(1.1) translateY(-10px);
-  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.box .imgBx {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.box .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s ease;
-}
-
-.box:hover .imgBx img {
-  opacity: 0;
-}
-
-.box .content {
-  position: absolute;
-  bottom: 20px;
-  left: 10%;
-  width: 80%;
-  height: 60px;
-  background: #00316b;
-  transition: all 0.5s ease;
-  overflow: hidden;
-  color: white;
-  padding: 15px;
-  box-sizing: border-box;
-}
-
-.box:hover .content {
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(45deg, #00316b, #1e88e5);
-}
-
-.box .content h3 {
-  margin: 0;
-  padding: 5px;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.box .content li {
-  margin: 10px;
-  padding: 0;
-  opacity: 0;
-  line-height: 1.2em;
-  transition: opacity 0.5s ease;
-  text-align: justify;
-}
-
-.box:hover .content li {
-  opacity: 1;
-  transition-delay: 0.3s;
-}
-
-.social {
-  background: #e91e63;
-  padding: 5%;
-  color: white;
-  text-align: center;
-  animation: slideIn 1.5s ease-out 0.6s;
-}
-
-.social i {
-  margin-top: 10px;
-  color: white;
-  font-size: 40px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social .social-icon {
-  display: inline-block;
-  width: 90px;
-  height: 90px;
-  padding: 10px;
-  margin: 10px;
-  background: #00316b;
-  border-radius: 30%;
-  box-shadow: 0 5px 15px -5px #00000070;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2) rotate(10deg);
-  background: linear-gradient(45deg, #e91e63, #f06292);
-}
-
-.social-icon:hover i {
-  transform: scale(1.2);
-  color: #ffffff;
 }
 
 /* SCROOL BAR ######################################## */

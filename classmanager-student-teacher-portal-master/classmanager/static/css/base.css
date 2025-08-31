@@ -63,17 +63,60 @@ ul li a
 
 /* INDEX HOME PAGE ############################################# */
 
-.banner{
+/* Animated Background for Banner */
+.banner {
   margin: 0;
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #3475ca;
+  background: linear-gradient(45deg, #3475ca, #e91e63, #00316b, #1e88e5);
+  background-size: 400%;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: gradientShift 15s ease infinite;
+  overflow: hidden;
 }
-.banner img{
+
+/* Gradient animation keyframes */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particle effect using pseudo-elements */
+.banner::before,
+.banner::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.banner::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: particleFloat 20s linear infinite;
+  opacity: 0.3;
+}
+
+.banner::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: particleFloat 30s linear infinite reverse;
+  opacity: 0.2;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
+.banner img {
   position: absolute;
   top: 0;
   left: 0;
@@ -83,19 +126,24 @@ ul li a
   opacity: 0.25;
   background-attachment: fixed;
 }
-.banner .content{
+
+.banner .content {
   position: relative;
   max-width: 750px;
   text-align: center;
   color: white;
-  font-weight: 1000;
-}
-
-.banner .content{
+  font-weight: 900;
   font-size: 40px;
+  animation: fadeIn 2s ease-in-out;
 }
 
-.about{
+/* Fade-in animation for content */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.about {
   position: relative;
   background: #00316b;
   color: white;
@@ -104,35 +152,50 @@ ul li a
   letter-spacing: 2px;
   font-weight: 600;
   font-size: 25px;
+  animation: slideIn 1.5s ease-out;
 }
 
-.use-content{
+/* Slide-in animation for sections */
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.use-content {
   background: #e91e63;
   padding: 20px;
   text-align: center;
   color: white;
   font-weight: 600;
+  animation: slideIn 1.5s ease-out 0.2s;
 }
 
-.use-content h1{
+.use-content h1 {
   font-weight: 700;
   font-size: 50px;
 }
 
-.research{
+.research {
   background: #00316b;
-  padding:5%;
+  padding: 5%;
   text-align: center;
   color: white;
   font-weight: 600;
+  animation: slideIn 1.5s ease-out 0.4s;
 }
 
-.research img{
-  width:100%;
+.research img {
+  width: 100%;
   height: 100%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.research .digital-content{
+.research img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.research .digital-content {
   padding: 30px;
   padding-top: 80px;
   text-align: center;
@@ -147,18 +210,22 @@ ul li a
   width: 400px;
   height: 500px;
   background: #000;
-  box-shadow: 0 30px 30px rgba(0,0,0,.5);
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-@media only screen and (max-width: 600px){
-  .box{
+@media only screen and (max-width: 600px) {
+  .box {
     margin: 5%;
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
   }
 }
 
-.box:hover{
-  transform: scale(1.1);
-  transition: 0.5s;
+.box:hover {
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .box .imgBx {
@@ -176,7 +243,7 @@ ul li a
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.5s;
+  transition: opacity 0.5s ease;
 }
 
 .box:hover .imgBx img {
@@ -190,7 +257,7 @@ ul li a
   width: 80%;
   height: 60px;
   background: #00316b;
-  transition: 0.5s;
+  transition: all 0.5s ease;
   overflow: hidden;
   color: white;
   padding: 15px;
@@ -202,6 +269,7 @@ ul li a
   height: 100%;
   bottom: 0;
   left: 0;
+  background: linear-gradient(45deg, #00316b, #1e88e5);
 }
 
 .box .content h3 {
@@ -212,34 +280,35 @@ ul li a
 }
 
 .box .content li {
-  margin: 10px 10px;
+  margin: 10px;
   padding: 0;
   opacity: 0;
   line-height: 1.2em;
-  transition: 0.5s;
+  transition: opacity 0.5s ease;
   text-align: justify;
 }
 
 .box:hover .content li {
   opacity: 1;
-  transition-delay: 0.5s;
+  transition-delay: 0.3s;
 }
 
-.social{
+.social {
   background: #e91e63;
-  padding:5%;
+  padding: 5%;
   color: white;
   text-align: center;
+  animation: slideIn 1.5s ease-out 0.6s;
 }
 
-.social i{
+.social i {
   margin-top: 10px;
   color: white;
   font-size: 40px;
-
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.social .social-icon{
+.social .social-icon {
   display: inline-block;
   width: 90px;
   height: 90px;
@@ -247,18 +316,18 @@ ul li a
   margin: 10px;
   background: #00316b;
   border-radius: 30%;
-  box-shadow: 0 5px 15px -5px #00000070
+  box-shadow: 0 5px 15px -5px #00000070;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.social-icon:hover{
+.social-icon:hover {
+  transform: scale(1.2) rotate(10deg);
+  background: linear-gradient(45deg, #e91e63, #f06292);
+}
+
+.social-icon:hover i {
   transform: scale(1.2);
-  transition: 0.5s;
-}
-
-.social-icon:hover i{
-  transform: scale(1.5);
-  transition: 0.5s;
-  color: #e91e63;
+  color: #ffffff;
 }
 
 /* SCROOL BAR ######################################## */

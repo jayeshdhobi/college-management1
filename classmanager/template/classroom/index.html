@@ -1,0 +1,118 @@
+{% extends 'classroom/base.html' %}
+{% load static %}
+{% block content %}
+
+{% if messages %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+  {% for message in messages %}
+    <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+  {% endfor %}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+
+<div class="banner">
+      <img src="{% static 'images/pexels-pixabay-267885.jpg' %}" alt="">
+      <div class="content">
+        <h1>Academix</h1>
+        <p>A Student-Teacher Portal</p>
+      </div>
+    </div>
+
+    <!-- About Section (Updated with Enhanced Content) -->
+    <div class="about animate__animated animate__fadeInUp">
+      <h1>About Us</h1>
+      <div class="about-content">
+        <p>📚 <strong>Class Manager</strong> is your all-in-one student-teacher portal, bringing the classroom online with seamless, interactive features.</p>
+        <p>👩‍🏫 <strong>Interactive Learning</strong>: Students and teachers can log in to access a dynamic digital classroom, fostering collaboration and engagement.</p>
+        <p>📊 <strong>Powerful Student Management</strong>: Teachers can effortlessly organize classes, track student progress, and keep everyone updated with real-time notifications.</p>
+        <ul>
+          <li>📤 Upload and submit assignments with ease.</li>
+          <li>📢 Share class notices instantly.</li>
+          <li>💬 Communicate directly through in-portal messaging.</li>
+          <li>📈 Monitor grades and performance with smart analytics.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="use-content">
+      <h1>Our Services</h1>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="box">
+            <div class="imgBx">
+              <img src="{% static 'images/respected_tech.webp' %}" alt="">
+            </div>
+            <div class="content">
+              <h3>For Teacher</h3>
+              <ol>
+                <li>Teachers can add students to their class.</li>
+                <li>Give or edit student marks.</li>
+                <li>Post class notices for all students.</li>
+                <li>Upload assignments for students.</li>
+                <li>Check submitted assignments and grade them.</li>
+                <li>Receive messages from students in Inbox.</li>
+                <li>View and edit marks from a student’s profile.</li>
+                <li>Upload a profile picture in Edit Profile.</li>
+
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="box">
+            <div class="imgBx">
+              <img src="{% static 'images/stu.webp' %}" alt="">
+            </div>
+            <div class="content">
+              <h3>For Student</h3>
+              <ol>
+                <li>Students can login in the portal and keep themselves updated of all the activities going on in the class.</li>
+                <li>Students can see the notice given by their teacher in the Class Notice option.</li>
+                <li>Students can download their assignments in the Assignments option and can also submit it their. ( Once assignment is submitted, it can't be changed later. )</li>
+                <li> Students can contact any teacher through message option in All Teachers List. </li>
+                <li>Students can check their marks in the Marks option.</li>
+                <li>User can add profile pic through edit profile option.</li>
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="research">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="{% static 'images/master.webp' %}" alt="">
+        </div>
+        <div class="col-md-8">
+          <div class="digital-content">
+            <h2>Digital Learning</h2>
+            <br> 
+            <p>
+                Students and teachers can log in to the portal and enjoy an interactive digital classroom experience.  
+            </p>
+            <p>
+              developed by <b>Ved Dhobi</b>
+            </p>
+
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social">
+      <h1>Are you ready to advance what's possible in education.</h1>
+      <h3>Then connect with us on social media.</h3>
+      <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+      <a class="social-icon" href="#"><i class="fab fa-twitter"></i></a>
+      <a class="social-icon" href="#"><i class="fab fa-instagram"></i></a>
+      <a class="social-icon" href="#"><i class="fab fa-google"></i></a>
+      <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
+{% endblock %}
